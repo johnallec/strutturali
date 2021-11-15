@@ -24,4 +24,5 @@ public class Testo extends OggettoGrafico {
 	public String getTesto() {
 		return this.testo;
 	}
+
 }
