@@ -11,9 +11,9 @@ public class Main {
 		Testo t2 = o.costruisciTesto("testo2", "Questo è il testo numero 2");
 		Testo t3 = o.costruisciTesto("testo3", "Questo è il testo numero 3");
 		Testo t4 = o.costruisciTesto("testo1", "Questo è il testo numero 4");
-		System.out.println(t1.getTesto());
-		System.out.println(t2.getTesto());
-		System.out.println(t3.getTesto());
-		System.out.println(t4.getTesto());
+		System.out.println(t1.getNome() + " -> " + t1.getTesto());
+		System.out.println(t2.getNome() + " -> " + t2.getTesto());
+		System.out.println(t3.getNome() + " -> " + t3.getTesto());
+		System.out.println(t4.getNome() + " -> " + t4.getTesto());
 	}
 }
