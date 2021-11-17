@@ -1,21 +1,22 @@
 package com.johnny.strutturali.ServerOggetti_PR.proxy;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Proxy {
 	
-	private List<ImmagineProxy> listaImmaginiProxy;
+	public List<ImmagineProxy> listaImmaginiProxy;
 	
 	public Proxy() {
 		this.listaImmaginiProxy = new ArrayList<ImmagineProxy>();
 	}
 	
-	public void aggiungiImmagine(String path) {
+	public void aggiungiImmagine(File file) {
 		for(ImmagineProxy imgp : listaImmaginiProxy)
-			if(imgp.getPath().compareTo(path)==0)
+			if(imgp.getFile().getAbsolutePath().compareTo(file.getAbsolutePath())==0)
 				return;
-		ImmagineProxy tmp = new ImmagineProxy("", path);
+		ImmagineProxy tmp = new ImmagineProxy("", file);
 		tmp.costruisci();
 		listaImmaginiProxy.add(tmp);
 	}

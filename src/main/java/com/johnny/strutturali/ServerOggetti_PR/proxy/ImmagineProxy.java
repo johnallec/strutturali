@@ -1,5 +1,7 @@
 package com.johnny.strutturali.ServerOggetti_PR.proxy;
 
+import java.io.File;
+
 import com.johnny.strutturali.ServerOggetti_PR.Immagine;
 
 public class ImmagineProxy extends Immagine{
@@ -10,13 +12,19 @@ public class ImmagineProxy extends Immagine{
 		this.img = null;
 	}
 	
-	public ImmagineProxy(String nome, String path) {
-		super(nome, path);
+	public ImmagineProxy(String nome, File file) {
+		super(nome, file);
 	}
 
 	@Override
 	public void costruisci() {
-		if(img == null)
-			this.img = new Immagine();
+		if(img == null) {
+			this.img = new Immagine(this.nome, this.file);
+			this.img.costruisci();
+		}
+	}
+	
+	public Immagine getImmagine() {
+		return this.img;
 	}
 }
