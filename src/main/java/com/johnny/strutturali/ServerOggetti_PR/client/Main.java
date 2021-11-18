@@ -5,7 +5,6 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import com.johnny.strutturali.ServerOggetti_PR.proxy.Proxy;
 import java.awt.event.*;
 import java.io.File;
-import java.io.IOException;
 import java.awt.*;
 
 public class Main {
@@ -16,7 +15,7 @@ public class Main {
 	private static Proxy proxy;
 	private static int index = 0;
 	
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 		JFrame frame = new JFrame();
 		frame.setSize(500,500);
 		frame.setVisible(true);
@@ -41,7 +40,6 @@ public class Main {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if(!proxy.listaImmaginiProxy.isEmpty()) {
-					System.out.println(index);
 					if(index < proxy.listaImmaginiProxy.size()-1)
 						index++;
 					else index = 0;
@@ -54,7 +52,6 @@ public class Main {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if(!proxy.listaImmaginiProxy.isEmpty()) {
-					System.out.println(index);
 					if(index > 0)
 						index--;
 					else index = proxy.listaImmaginiProxy.size()-1;
@@ -66,24 +63,30 @@ public class Main {
 		add.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				File file = scegliImmagine();
-				if(file!=null)
-					proxy.aggiungiImmagine(file);
-				if(proxy.listaImmaginiProxy.size()==1)
-					label.setIcon(proxy.listaImmaginiProxy.get(0).getImmagine().getLabelImage().getIcon());
+				File[] files = scegliImmagine();
+				if(files!=null) {
+					for(int i=0; i<files.length; ++i)
+						if(files[i]!=null) 
+							proxy.aggiungiImmagine(files[i]);
+					if(proxy.listaImmaginiProxy.size()>0) {
+								label.setIcon(proxy.listaImmaginiProxy.get(index).getImmagine().getLabelImage().getIcon());
+					}
+				}
 			}
 		});
 		
 	}
 
-	private static File scegliImmagine() {
+	private static File[] scegliImmagine() {
 		JFileChooser jfc = new JFileChooser();
+		jfc.setCurrentDirectory(new File("C:\\Users\\cj198\\OneDrive\\Desktop\\imgs"));
 		jfc.setAcceptAllFileFilterUsed(false);
 		jfc.addChoosableFileFilter(new FileNameExtensionFilter("Images","jpg","jpeg","png"));
+		jfc.setMultiSelectionEnabled(true);
 		int res = jfc.showOpenDialog(panel);
 		if(res == JFileChooser.APPROVE_OPTION){
-			File file = jfc.getSelectedFile();
-			return file;
+			File[] files = jfc.getSelectedFiles();
+			return files;
 		}
 		return null;
 	}

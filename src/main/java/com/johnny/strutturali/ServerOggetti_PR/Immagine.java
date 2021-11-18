@@ -30,11 +30,12 @@ public class Immagine extends Oggetto {
 	@Override
 	public void costruisci() {
 		try {
-			Image img = ImageIO.read(this.file).getScaledInstance(labelImage.getWidth(), labelImage.getHeight(), Image.SCALE_SMOOTH);
+			Image img = ImageIO.read(this.file);
 			labelImage.setIcon(new ImageIcon(img));
 			labelImage.setVisible(true);
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("aaaa");
+			//e.printStackTrace();
 		}
 	}
 

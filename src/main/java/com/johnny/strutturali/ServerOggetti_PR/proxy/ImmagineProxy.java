@@ -21,6 +21,7 @@ public class ImmagineProxy extends Immagine{
 		if(img == null) {
 			this.img = new Immagine(this.nome, this.file);
 			this.img.costruisci();
+			System.out.println(this.file.getAbsolutePath() + " ---> Aggiunta");
 		}
 	}
 	
