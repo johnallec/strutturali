@@ -22,4 +22,10 @@ public class Riga {
 			System.out.print(c.getCarattere());
 	}
 
+	public void stampaRipetuti() {
+		for(int i = 0; i < listaCaratteri.size()-1; ++i)
+			for(int j = i+1; j < listaCaratteri.size(); ++j)
+				if(listaCaratteri.get(i) == listaCaratteri.get(j))
+					System.out.println("Carattere " + listaCaratteri.get(i).getCarattere() + " posizione " + i + " <-> Carattere " + listaCaratteri.get(j).getCarattere() + " posizione " + j );
+	}
 }

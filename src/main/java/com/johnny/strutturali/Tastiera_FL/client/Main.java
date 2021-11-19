@@ -2,6 +2,7 @@ package com.johnny.strutturali.Tastiera_FL.client;
 
 import com.johnny.strutturali.Tastiera_FL.Pagina;
 import com.johnny.strutturali.Tastiera_FL.Riga;
+import com.johnny.strutturali.Tastiera_FL.flyweight.Tastiera;
 
 public class Main {
 
@@ -26,8 +27,9 @@ public class Main {
 		Pagina pagina = new Pagina();
 		pagina.aggiungiRiga(riga1);
 		pagina.stampaRighe();
-		t.stampaCaratteri();
-		System.out.println(t.getNumeroCaratteri());
+		System.out.println();
+		riga1.stampaRipetuti();
+		
 	}
 
 }
