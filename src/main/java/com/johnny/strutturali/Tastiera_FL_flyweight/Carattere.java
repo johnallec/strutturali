@@ -1,6 +1,7 @@
 package com.johnny.strutturali.Tastiera_FL_flyweight;
 
 public class Carattere {
+	
 	protected char carattere;
 	
 	public Carattere() {
