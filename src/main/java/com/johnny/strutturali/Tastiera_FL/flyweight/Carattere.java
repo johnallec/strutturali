@@ -1,4 +1,4 @@
-package com.johnny.strutturali.Tastiera_FL_flyweight;
+package com.johnny.strutturali.Tastiera_FL.flyweight;
 
 public class Carattere {
 	

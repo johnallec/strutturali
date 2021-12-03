@@ -3,7 +3,7 @@ package com.johnny.strutturali.Tastiera_FL;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.johnny.strutturali.Tastiera_FL_flyweight.Carattere;
+import com.johnny.strutturali.Tastiera_FL.flyweight.Carattere;
 
 public class Riga {
 	

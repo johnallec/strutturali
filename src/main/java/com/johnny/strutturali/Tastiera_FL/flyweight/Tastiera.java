@@ -2,8 +2,6 @@ package com.johnny.strutturali.Tastiera_FL.flyweight;
 
 import java.util.HashMap;
 
-import com.johnny.strutturali.Tastiera_FL_flyweight.Carattere;
-
 public class Tastiera {
 	private HashMap<Character,Carattere> caratteri;
 	
